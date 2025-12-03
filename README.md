@@ -1,1 +1,1 @@
-# Time-Counter-oled-esp32
+# Счетчик прошедшего времени на esp32/82xx и oled экране 
