@@ -27,11 +27,11 @@
 5. Так же скачать и установить библеотеку [GyverOled](https://github.com/GyverLibs/GyverOLED) и [GyverNtp](https://github.com/GyverLibs/GyverNTP)
 6. ### Важно по умолчанию таймер настроен на 7 сентебря 2025 год, для настройки своего времени нужно вписать в пременную свое время в формате unix time
 7. Можно исплользовать [Uniximestamp](https://www.unixtimestamp.com/)
-8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается wifi 2,4)
+8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается только wifi 2,4)
 ```
     WiFi.begin("WIFI_SSID", "WIFI_PASS");
-    Time_hfnsf = 12345678
-    Ваша реклама
+    Time_hfnsf = 12345678;
+    Nip.iniy();
 ```
 10. Выбрать вашу плату и прошить
 # Profit
