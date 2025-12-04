@@ -24,7 +24,7 @@
 2. Usb кабель
 3. Устоновленная Arduino ide
 4. А Так же згрузить и утновить в arduino ide дополнителный пакет плат esp
-5. Так же скачать и установить библеотеку GyverOled и GyverNtp
+5. Так же скачать и установить библеотеку [GyverOled](https://github.com/GyverLibs/GyverOLED) и [GyverNtp](https://github.com/GyverLibs/GyverNTP)
 6. ### Важно по умолчанию таймер настроен на 7 сентебря 2025 год, для настройки своего времени нужно вписать в пременную свое время в формате unix time
 7. Можно исплользовать [Uniximestamp](https://www.unixtimestamp.com/)
 8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается wifi 2,4)
