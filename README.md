@@ -24,7 +24,7 @@
 1. Компьютер на базе windows/linux
 2. Usb кабель
 3. Устоновленная Arduino ide
-4. А Так же згрузить и утновить в arduino ide дополнителный пакет плат esp(32)[https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json] / (82xx)[https://arduino.esp8266.com/stable/package_esp8266com_index.json]
+4. А Так же згрузить и утновить в arduino ide дополнителный пакет плат esp [32](https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json) / [82xx](https://arduino.esp8266.com/stable/package_esp8266com_index.json)
 5. Так же скачать и установить библеотеку [GyverOled](https://github.com/GyverLibs/GyverOLED) и [GyverNtp](https://github.com/GyverLibs/GyverNTP)
 6. ### Важно по умолчанию таймер настроен на 7 сентебря 2025 год, для настройки своего времени нужно вписать в пременную свое время в формате unix time
 7. Можно исплользовать [Uniximestamp](https://www.unixtimestamp.com/)
