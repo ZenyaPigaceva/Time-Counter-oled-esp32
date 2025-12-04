@@ -1,9 +1,10 @@
 #Main Code File
+
 #include <GyverNTP.h>
 #include <GyverOLED.h>
 GyverOLED<SSD1306_128x64, OLED_NO_BUFFER> oleg;
 uint32_t Ntc_Time;
-uint32_t TimeZziuko = 1757209080;
+uint32_t TimeCounting = 1757209080;
 uint32_t Time_passed;
 uint32_t Years;
 uint32_t Months;
@@ -15,9 +16,10 @@ uint32_t Remaining;
 void setup() {
     
 	Serial.begin(115200); // надо же дебажить 
-	oleg.init(39,40); // Это сюда подколючена и2ц дисплея
+	oleg.init(39,40); // Это сюда подключена и2ц дисплея
     oleg.clear();
-    WiFi.begin("YourWIFISSID", "YOURFIFIPASS"); // подключить к WiFi
+	oled.print("Connect to Wifi");
+    WiFi.begin("Название вашей сети wifi", "пароль от вашего  wifi"); // подключить к WiFi
     NTP.begin(3); // запустить и указать часовой пояс
 	NTP.setPeriod(30); // период синхронизации в секундах
 }
@@ -25,21 +27,15 @@ void setup() {
 void loop() {
 
 if (NTP.tick()) {
-  // вывод даты и времени строкой
- // Serial.print(NTP.toString());  // NTP.timeToString(), NTP.dateToString()
-  //Serial.print(':');
- // Serial.println(NTP.ms());
- // Serial.println(NTP.getUnix()); 
-  Ntc_Time = NTP.getUnix();
-  TimeMath();
-  Debug();
-  Zziuko();
+
+   Ntc_Time = NTP.getUnix(); // получение текушего времени и запись его в локальную переменную
+   TimeMath(); // Функция которая отвечает за конвертацию и сравнение прошедших секунд в дни,года,месяцы,итд..
+// Debug(); // Функция для отладки, по умолчанию закомментированна 
+   DisplayPrint(); // Функция вывода готовых данных на экран, вызвать после  TimeMath();
  
-
-
 }	// вызывать тикер в loop
 }
-void Zziuko() {
+void  DisplayPrint() {
   oleg.setScale(1);
   oleg.setCursor(30, 2);
   oleg.print(Ntc_Time);
@@ -47,10 +43,10 @@ void Zziuko() {
   oleg.setScale(1);
   oleg.print(Months); oleg.setScale(1);
   //oleg.setCursor(0, 0);
-  //oleg.print(Ntc_Time - TimeZziuko);
+  //oleg.print(Ntc_Time - TimeCounting);
   //oleg.setCursor(0, 1);
   //oleg.print(NTP.toString());
-  //Zziuko();
+  // DisplayPrint();
   
  
 
@@ -58,8 +54,7 @@ void Zziuko() {
 }
 
 void TimeMath() {
-	Time_passed = (Ntc_Time - TimeZziuko);
-	//Serial.println(Time_passed);
+	Time_passed = (Ntc_Time - TimeCounting); // Тут получаем кошличество времени которое прошло в секундах
 	Years = Time_passed/ 31536000;
 	Remaining = Time_passed % 31536000 ;
 	Months= Remaining / 2592000;
