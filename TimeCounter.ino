@@ -44,10 +44,8 @@ void  DisplayPrint() {
   oleg.setScale(1);
   oleg.print(Months); oleg.setScale(1);
   //oleg.setCursor(0, 0);
-  //oleg.print(Ntc_Time - TimeCounting);
-  //oleg.setCursor(0, 1);
-  //oleg.print(NTP.toString());
-  // DisplayPrint();
+  
+ 
   
  
 
