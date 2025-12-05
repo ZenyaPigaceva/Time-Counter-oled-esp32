@@ -1,4 +1,4 @@
-#Main Code File
+//#Main Code File
 
 #include <GyverNTP.h>
 #include <GyverOLED.h>
@@ -51,7 +51,7 @@ void DisplayStart() {
     // Эффект заполнения экрана линиями
     for (int i = 0; i < 64; i += 4) {
         oleg.drawLine(0, i, 127, i, OLED_STROKE_FILL);
-        oleg.update();
+        //oleg.update();
         delay(50); }
 
     // Текст приветствия
@@ -59,7 +59,7 @@ void DisplayStart() {
     oleg.setScale(2);
     oleg.setCursor(15, 20);
     oleg.print("Welcome!");
-    oleg.update();
+    //oleg.update();
     delay(1000);
 
     // Подключение к Wi-Fi
@@ -72,14 +72,14 @@ void DisplayStart() {
     // Эффект "мигающих точек"
     for (int i = 0; i < 3; i++) {
         oleg.print(".");
-        oleg.update();
+        //oleg.update();
         delay(500); }
     oleg.clear();
     
     // Сообщение об успешном подключении
     oleg.setCursor(20, 20);
     oleg.print("Wi-Fi Connected!");
-    oleg.update();
+    //oleg.update();
     delay(1000);
 }
 
