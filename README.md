@@ -25,16 +25,16 @@
 ### Вам понадобится
 1. Компьютер на базе windows/linux
 2. Usb кабель
-3. Устоновленная Arduino ide
+3. Устоновленная Arduino ide (лучше ставить 1.х.х)
 4. А так же загрузить и устновить в arduino ide дополнителный пакет плат esp[32](https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json)/[82xx](https://arduino.esp8266.com/stable/package_esp8266com_index.json)
 5. Так же скачать и установить библеотеку [GyverOled](https://github.com/GyverLibs/GyverOLED) и [GyverNtp](https://github.com/GyverLibs/GyverNTP)
 6. ### Важно по умолчанию таймер настроен на 7 сентебря 2025 год, для настройки своего времени нужно вписать в пременную свое время в формате unix time
 7. Можно исплользовать [Uniximestamp](https://www.unixtimestamp.com/)
-8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается только wifi 2,4Ggz)
+8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается только wifi 2,4Ggz) а так же ваше время и часовой пояс 
 ```
-    WiFi.begin("WIFI_SSID", "WIFI_PASS");
-    Time_Counter = 12345678; 
-    NTP.init();
+    WiFi.begin("WIFI_SSID", "WIFI_PASS"); // Настройка Wifi
+    Time_Counter = 12345678; // Время в unix time 
+    NTP.init(3); //Здесь стоит указать ваш часовой почс utc
 ```
 10. Выбрать вашу плату (В нашем случае это Lolin S2 Mini) и прошить 
 # Profit
