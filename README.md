@@ -33,8 +33,8 @@
 8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается только wifi 2,4Ggz)
 ```
     WiFi.begin("WIFI_SSID", "WIFI_PASS");
-    Time_hfnsf = 12345678;
-    Nip.iniy();
+    Time_Counter = 12345678; 
+    NTP.init();
 ```
 10. Выбрать вашу плату (В нашем случае это Lolin S2 Mini) и прошить 
 # Profit
