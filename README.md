@@ -1,6 +1,6 @@
 # Счетчик прошедшего времени на esp32/82xx и oled экране 
 Данный проект использует ардуино фреймворк, а так же сторонние библеотеки для NTP и работы с OLED экраном
-# ПроектВОткрытойБете
+# Проект в открытой Бете
 С его помощью вы можете сделать себе самодельное/кастомное напоминание или счетчик от значимой для вас даты в прошлом.
 
 Данный проект очень прост для повторения и содержит в себе минимум деталей при сборке базовой версии.
@@ -26,11 +26,11 @@
 1. Компьютер на базе windows/linux
 2. Usb кабель
 3. Устоновленная Arduino ide
-4. А Так же згрузить и утновить в arduino ide дополнителный пакет плат esp[32](https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json)/[82xx](https://arduino.esp8266.com/stable/package_esp8266com_index.json)
+4. А так же загрузить и устновить в arduino ide дополнителный пакет плат esp[32](https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json)/[82xx](https://arduino.esp8266.com/stable/package_esp8266com_index.json)
 5. Так же скачать и установить библеотеку [GyverOled](https://github.com/GyverLibs/GyverOLED) и [GyverNtp](https://github.com/GyverLibs/GyverNTP)
 6. ### Важно по умолчанию таймер настроен на 7 сентебря 2025 год, для настройки своего времени нужно вписать в пременную свое время в формате unix time
 7. Можно исплользовать [Uniximestamp](https://www.unixtimestamp.com/)
-8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается только wifi 2,4)
+8. Так же нужно ввести пароль и ssid вашей wifi сети (Поддерживается только wifi 2,4Ggz)
 ```
     WiFi.begin("WIFI_SSID", "WIFI_PASS");
     Time_hfnsf = 12345678;
