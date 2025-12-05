@@ -6,21 +6,21 @@ GyverOLED<SSD1306_128x64, OLED_NO_BUFFER> oleg;
 uint32_t Ntc_Time;
 uint32_t TimeCounting = 1757209080; //Сюда надо вписать Свое время 
 uint32_t Time_passed; //это все переменные и их иницилизация 
-uint32_t Years;
-uint32_t Months;
-uint32_t Days;
-uint32_t Hours;
-uint32_t Minutes;
-uint32_t Seconds;
+uint8_t Years;
+uint8_t Months;
+uint8_t Days;
+uint8_t Hours;
+uint8_t Minutes;
+uint8_t Seconds;
 uint32_t Remaining; // вот тута они закончились
 void setup() {
     
 	Serial.begin(115200); // надо же дебажить 
- oleg.init(39,40); // Это сюда подключена и2ц дисплея
- DisplayStart();
- WiFi.begin("Название вашей сети wifi", "пароль от вашего  wifi"); // подключить к WiFi
- oleg.clear();
- NTP.begin(3); // запустить и указать часовой пояс
+	oleg.init(39,40); // Это сюда подключена и2ц дисплея
+	DisplayStart();
+	WiFi.begin("Название вашей сети wifi", "пароль от вашего  wifi"); // подключить к WiFi
+	oleg.clear();
+	NTP.begin(3); // запустить и указать часовой пояс
 	NTP.setPeriod(30); // период синхронизации в секундах
 }
 
@@ -36,23 +36,23 @@ if (NTP.tick()) {
 }	// вызывать тикер в loop
 }
 void  DisplayPrint() {
-  oleg.setScale(1);
-  oleg.setCursor(30, 2);
-  oleg.print(Ntc_Time);
-  oleg.setCursor(0, 5);
-  oleg.setScale(1);
-  oleg.print(Months); oleg.setScale(1);
-  //oleg.setCursor(0, 0);
+	oleg.setScale(1);
+	oleg.setCursor(30, 2);
+	oleg.print(Ntc_Time);
+	oleg.setCursor(0, 5);
+	oleg.setScale(1);
+	oleg.print(Months); oleg.setScale(1);
+	//oleg.setCursor(0, 0);
   }
 
 void DisplayStart() {
-    oleg.clear();  // Очистка экрана перед анимацией
+     oleg.clear();  // Очистка экрана перед анимацией
 
     // Эффект заполнения экрана линиями
-    for (int i = 0; i < 64; i += 4) {
-        oleg.drawLine(0, i, 127, i, OLED_STROKE_FILL);
-        //oleg.update();
-        delay(50); }
+   // for (int i = 0; i < 64; i += 4) {
+     //   oleg.drawLine(0, i, 127, i, OLED_STROKE_FILL);
+     //   oleg.update();
+      //  delay(50); }
 
     // Текст приветствия
     oleg.clear();
@@ -97,6 +97,7 @@ void TimeMath() {
 	Seconds = Remaining % 60;
 }
 void Debug() {
-	//Serial.println(Days,Hours);
+	Serial.print("The time is :");
+//	Serial.print(Days,Months,Seconds);
 	}
 	
