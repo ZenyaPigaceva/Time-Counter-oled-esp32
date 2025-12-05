@@ -17,7 +17,7 @@ void setup() {
     
 	Serial.begin(115200); // надо же дебажить 
  oleg.init(39,40); // Это сюда подключена и2ц дисплея
- 
+ DisplayStart();
  WiFi.begin("Название вашей сети wifi", "пароль от вашего  wifi"); // подключить к WiFi
  oleg.clear();
  NTP.begin(3); // запустить и указать часовой пояс
