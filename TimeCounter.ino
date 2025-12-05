@@ -44,12 +44,44 @@ void  DisplayPrint() {
   oleg.setScale(1);
   oleg.print(Months); oleg.setScale(1);
   //oleg.setCursor(0, 0);
-  
- 
-  
- 
+  }
 
+void DisplayStart() {
+    oleg.clear();  // Очистка экрана перед анимацией
 
+    // Эффект заполнения экрана линиями
+    for (int i = 0; i < 64; i += 4) {
+        oleg.drawLine(0, i, 127, i, OLED_STROKE_FILL);
+        oleg.update();
+        delay(50); }
+
+    // Текст приветствия
+    oleg.clear();
+    oleg.setScale(2);
+    oleg.setCursor(15, 20);
+    oleg.print("Welcome!");
+    oleg.update();
+    delay(1000);
+
+    // Подключение к Wi-Fi
+    oleg.clear();
+    oleg.setScale(1);
+    oleg.setCursor(10, 20);
+    oleg.print("Connecting to Wi-Fi...");
+    oleg.update();
+
+    // Эффект "мигающих точек"
+    for (int i = 0; i < 3; i++) {
+        oleg.print(".");
+        oleg.update();
+        delay(500); }
+    oleg.clear();
+    
+    // Сообщение об успешном подключении
+    oleg.setCursor(20, 20);
+    oleg.print("Wi-Fi Connected!");
+    oleg.update();
+    delay(1000);
 }
 
 void TimeMath() {
