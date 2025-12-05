@@ -4,23 +4,24 @@
 #include <GyverOLED.h>
 GyverOLED<SSD1306_128x64, OLED_NO_BUFFER> oleg;
 uint32_t Ntc_Time;
-uint32_t TimeCounting = 1757209080;
-uint32_t Time_passed;
+uint32_t TimeCounting = 1757209080; //Сюда надо вписать Свое время 
+uint32_t Time_passed; //это все переменные и их иницилизация 
 uint32_t Years;
 uint32_t Months;
 uint32_t Days;
 uint32_t Hours;
 uint32_t Minutes;
 uint32_t Seconds;
-uint32_t Remaining;
+uint32_t Remaining; // вот тута они закончились
 void setup() {
     
 	Serial.begin(115200); // надо же дебажить 
 	oleg.init(39,40); // Это сюда подключена и2ц дисплея
-    oleg.clear();
-	oled.print("Connect to Wifi");
-    WiFi.begin("Название вашей сети wifi", "пароль от вашего  wifi"); // подключить к WiFi
-    NTP.begin(3); // запустить и указать часовой пояс
+ oleg.clear();
+	oleg.print("Connect to Wifi");
+ WiFi.begin("Название вашей сети wifi", "пароль от вашего  wifi"); // подключить к WiFi
+ oleg.clear();
+ NTP.begin(3); // запустить и указать часовой пояс
 	NTP.setPeriod(30); // период синхронизации в секундах
 }
 
