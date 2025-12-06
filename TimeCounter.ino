@@ -3,7 +3,7 @@
 #include <GyverOLED.h>
 GyverOLED<SSD1306_128x64, OLED_NO_BUFFER> oleg;
 uint32_t Ntc_Time;
-uint32_t TimeCounting = 1757209080; //Сюда надо вписать Свое время 
+uint32_t TimeCounting = 175720908; //Сюда надо вписать Свое время 
 uint32_t Time_passed; //это все переменные и их иницилизация 
 uint8_t Years;
 uint8_t Months;
@@ -16,10 +16,10 @@ uint32_t Remaining; // вот тута они закончились
 void setup() {
     
 	Serial.begin(115200);                        // надо же дебажить 
-	oleg.init(39,40);
+	oleg.init(14,12);
   oleg.clear();                           // Это сюда подключена и2ц дисплея 39,40  sda scl 14,12 5,6
   oleg.setContrast(255);
-	WiFi.begin("Wifi", "Pass");      // подключить к WiFi
+	WiFi.begin("Ryo'Apls", "zziukobest");      // подключить к WiFi
   while (WiFi.status() != WL_CONNECTED) {   // Wait for the Wi-Fi to connect
     Serial.print('.');
     DisplayStart();
@@ -47,20 +47,46 @@ void DisplayPrint() {
 	oleg.print("Времени прошло");
   oleg.line(0, 10, 127, 10, 127);
 	oleg.setCursor(1, 2);
-	oleg.setScale(2);
-	oleg.print(Months); 
+	oleg.setScale(1);
+	oleg.print("Лет -   "); 
+  oleg.setCursor(35, 2);
+  oleg.print(Years);
+
+  oleg.setCursor(1, 3);
+	oleg.setScale(1);
+	oleg.print("Месяцев -   "); 
   oleg.setScale(1);
-  oleg.setCursor(15, 3);
-  oleg.print("Месяца");
+  oleg.setCursor(60, 3);
+  oleg.print(Months); 
+
   oleg.setCursor(1, 4);
-	oleg.setScale(2);
-	oleg.print(Days); 
+	oleg.setScale(1);
+	oleg.print("Дней -   "); 
   oleg.setScale(1);
-  oleg.setCursor(15, 5);
-  oleg.print("Дней");
-
+  oleg.setCursor(40, 4);
+  oleg.print(Days); 
   
+  oleg.setCursor(1, 5);
+	oleg.setScale(1);
+	oleg.print("Часов -   "); 
+  oleg.setScale(1);
+  oleg.setCursor(45, 5);
+  oleg.print(Hours); 
 
+  oleg.setCursor(1, 6);
+	oleg.setScale(1);
+	oleg.print("Минут -   "); 
+  oleg.setScale(1);
+  oleg.setCursor(50, 6);
+  oleg.print(Minutes); 
+  
+  oleg.setCursor(1, 7);
+	oleg.setScale(1);
+	oleg.print("Секунд -   "); 
+  oleg.setScale(1);
+  oleg.setCursor(55, 7);
+  oleg.print(Seconds); 
+  
 
 
   }
